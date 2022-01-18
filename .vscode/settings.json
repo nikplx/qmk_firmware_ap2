@@ -17,7 +17,17 @@
         "xstddef": "c",
         "type_traits": "c",
         "utility": "c",
-        "ranges": "c"
+        "ranges": "c",
+        "bit": "c",
+        "compare": "c",
+        "cstddef": "c",
+        "iterator": "c",
+        "limits": "c",
+        "memory": "c",
+        "system_error": "c",
+        "xiosbase": "c",
+        "xlocale": "c",
+        "xutility": "c"
     },
     "[markdown]": {
         "editor.trimAutoWhitespace": false,

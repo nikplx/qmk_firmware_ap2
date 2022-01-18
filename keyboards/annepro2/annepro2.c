@@ -20,6 +20,7 @@
 #include "spi_master.h"
 #include "ap2_led.h"
 #include "protocol.h"
+#include "spi_master.h"
 
 #define RAM_MAGIC_LOCATION 0x20001ffc
 #define IAP_MAGIC_VALUE 0x0000fab2
@@ -68,6 +69,7 @@ void bootloader_jump(void) {
 }
 
 void keyboard_pre_init_kb(void) {
+    spi_init();
     // Start LED UART
     sdStart(&SD0, &ledUartInitConfig);
     /* Let the LED chip settle a bit before switching the mode.
@@ -84,6 +86,8 @@ void keyboard_pre_init_kb(void) {
     while (!sdGetWouldBlock(&SD0)) sdGet(&SD0);
 
     sdStart(&SD0, &ledUartRuntimeConfig);
+
+    wait_ms(5);
     keyboard_pre_init_user();
 }
 
