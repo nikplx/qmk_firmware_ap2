@@ -38,3 +38,5 @@ COMBO_ENABLE = no
 
 RGB_MATRIX_ENABLE = yes
 RGB_MATRIX_DRIVER = custom
+
+EEPROM_DRIVER = spi_flash
