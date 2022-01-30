@@ -21,6 +21,8 @@
 #include "ap2_led.h"
 #include "protocol.h"
 #include "spi_master.h"
+#include "eeprom.h"
+#include "eeconfig.h"
 
 #define RAM_MAGIC_LOCATION 0x20001ffc
 #define IAP_MAGIC_VALUE 0x0000fab2
@@ -105,8 +107,15 @@ void keyboard_post_init_kb(void) {
 
     annepro2LedGetStatus();
 
-    // Enable RGB from the start
-    annepro2LedEnable();
+    // Read from EEPROM current RGB MATRIX status
+    eeprom_read_block(&rgb_matrix_config, EECONFIG_RGB_MATRIX, sizeof(rgb_matrix_config));
+
+    // Turn on/off depeding on EEPROM
+    if(rgb_matrix_config.enable){
+         annepro2LedEnable();
+    }else{
+        annepro2LedDisable();
+    }
 
     keyboard_post_init_user();
 }

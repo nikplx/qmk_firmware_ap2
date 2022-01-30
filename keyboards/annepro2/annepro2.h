@@ -25,6 +25,7 @@ typedef struct __attribute__((__packed__)) {
     bool    caps_lock;
 } ble_capslock_t;
 extern ble_capslock_t BLECapsLock;
+extern rgb_config_t rgb_matrix_config;
 
 // Matrix keymap
 // clang-format off

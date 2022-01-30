@@ -3,7 +3,9 @@ SRC = \
 	matrix.c \
 	annepro2_ble.c \
 	ap2_led.c \
-	protocol.c
+	protocol.c \
+	led_matrix.c \
+	config_led.c
 
 # MCU
 MCU = cortex-m0plus
@@ -33,3 +35,8 @@ RAW_ENABLE = no
 MIDI_ENABLE = no
 VIRTSER_ENABLE = no
 COMBO_ENABLE = no
+
+RGB_MATRIX_ENABLE = yes
+RGB_MATRIX_DRIVER = custom
+
+EEPROM_DRIVER = spi_flash
